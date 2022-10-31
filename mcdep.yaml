@@ -20,5 +20,5 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 11211
-          name: vprocache01-port
+          name: vprocache-port
 
