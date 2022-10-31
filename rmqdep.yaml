@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vprocache01
+  name: vpromq01
 spec:
   selector:
     matchLabels:
-      app: vprocache01
+      app: vpromq01
   template:
     metadata:
       labels:
-        app: vprocache01
+        app: vpromq01
     spec:
       containers:
-      - name: vprocache01
-        image: memcached
+      - name: vpromq01
+        image: rabbitmq
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 11211
-          name: vprocache01-port
-
+        - containerPort: 15672
+          name: vpromq01-port
+          protocol: TCP
