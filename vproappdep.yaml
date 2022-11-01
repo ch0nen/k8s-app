@@ -16,16 +16,8 @@ spec:
         image: vprofile/vprofileapp:V1
         resources:
           limits:
-            memory: "128Mi"
+            memory: "256Mi"
             cpu: "500m"
         ports:
         - containerPort: 8080
           name: vproapp-port
-      initContainers:
-        - name: init-mydb
-          image: busybox
-          command: ['sh', '-c', 'until nslookup vprodb; do echo waiting for mydb; sleep 2; done;']
-        - name: init-mydb
-          image: busybox
-          command: ['sh', '-c', 'until nslookup vprocache01; do echo waiting for mydb; sleep 2; done;']
-        
